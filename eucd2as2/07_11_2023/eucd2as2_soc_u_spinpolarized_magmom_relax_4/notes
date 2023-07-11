@@ -1,0 +1,10 @@
+DFT+U: 5eV
+Adjusted structure 
+
+No relaxation 
+And keeping spin orbit coupling 
+Using Eu PSEUDOPOTENTIALS 
+Setting magmom initial value to 5.0 instead of 1.0 
+Was noticing that the magnetic moments wouldn't change at all... 
+ISPIN tag not used 
+SOC so it's a non-spin polarized calculation
