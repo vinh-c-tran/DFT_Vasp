@@ -45,7 +45,7 @@ def remove_bands_energy_range(data, E_min, E_max):
             data_new.append([[],[]])
     return data_new
 
-def plot_bands_new(data, fermi_energy, E_min, E_max, kspacing = 30, struct = 'full', colormap = "viridis", kpath = 'MGM', filename = 'eucd2as2'):
+def plot_bands_new(data, fermi_energy, E_min, E_max, kspacing = 50, struct = 'full', colormap = "viridis", kpath = 'MGM', filename = 'eucd2as2'):
     
     plt.clf()
     # generate colors 
