@@ -136,7 +136,7 @@ def _get_parser():
 
     parser.add_argument(
         "--E_min",
-        default = -4
+        default = -3
     )
 
     parser.add_argument(
