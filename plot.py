@@ -146,7 +146,7 @@ def _get_parser():
 
     parser.add_argument(
         "--kspacing",
-        default = 45 
+        default = 30 
     )
 
     parser.add_argument(
