@@ -136,12 +136,12 @@ def _get_parser():
 
     parser.add_argument(
         "--E_min",
-        default = -3
+        default = -4
     )
 
     parser.add_argument(
         "--E_max", 
-        default = 1
+        default = 2
     )
 
     parser.add_argument(
