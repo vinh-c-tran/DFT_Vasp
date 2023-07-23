@@ -45,7 +45,7 @@ def remove_bands_energy_range(data, E_min, E_max):
             data_new.append([[],[]])
     return data_new
 
-def plot_bands_new(data, fermi_energy, E_min, E_max, kspacing = 50, struct = 'full', colormap = "viridis", kpath = 'MGM', filename = 'eucd2as2'):
+def plot_bands_new(data, fermi_energy, E_min, E_max, kspacing = 50, struct = 'full', colormap = "viridis", kpath = 'MGM', filename = 'eucd2as2', code = 'vasp'):
     
     plt.clf()
     # generate colors 
@@ -100,13 +100,22 @@ def plot_bands_new(data, fermi_energy, E_min, E_max, kspacing = 50, struct = 'fu
                     labels.append(point)
                 xticks_location.append(data[0][0][0])
             else:
-                x_vals = np.full(data_length, data[0][0][index * kspacing -1])
-                plt.plot(x_vals, y_vals, color = 'black', linewidth = 1)
-                if point == 'G':
-                    labels.append("$\Gamma$")
-                else:
-                    labels.append(point)
-                xticks_location.append(data[0][0][index * kspacing - 1])                
+                if code == 'vasp':
+                    x_vals = np.full(data_length, data[0][0][index * kspacing -1])
+                    plt.plot(x_vals, y_vals, color = 'black', linewidth = 1)
+                    if point == 'G':
+                        labels.append("$\Gamma$")
+                    else:
+                        labels.append(point)
+                    xticks_location.append(data[0][0][index * kspacing - 1])
+                elif code == 'qe':  
+                    x_vals = np.full(data_length, data[0][0][index * (kspacing -1)])
+                    plt.plot(x_vals, y_vals, color = 'black', linewidth = 1)
+                    if point == 'G':
+                        labels.append("$\Gamma$")
+                    else:
+                        labels.append(point)
+                    xticks_location.append(data[0][0][index * (kspacing - 1)])              
         plt.gca().set_xticks(xticks_location)
         plt.gca().set_xticklabels(labels)
         plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(1))
@@ -171,6 +180,10 @@ def _get_parser():
     parser.add_argument(
         "--filename"
     )
+    parser.add_argument(
+        "--code",
+        default = 'vasp'
+    )
     return parser 
 
 def main():
@@ -185,6 +198,7 @@ def main():
         kspacing = args.kspacing,
         filename=args.filename,
         colormap=args.colormap
+        code=args.code 
     )
 
 
