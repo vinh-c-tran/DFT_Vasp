@@ -197,7 +197,7 @@ def main():
         kpath=args.kpath, 
         kspacing = args.kspacing,
         filename=args.filename,
-        colormap=args.colormap
+        colormap=args.colormap,
         code=args.code 
     )
 
