@@ -118,7 +118,7 @@ def plot_bandstructure(file_path, fermi_energy, E_min, E_max, kspacing, struct, 
     fermi_energy = float(fermi_energy) 
     E_min = float(E_min) 
     E_max = float(E_max) 
-    kspacing = float(kspacing) 
+    kspacing = int(kspacing) 
     data = band_structure_gen(file_path)
     data = remove_bands_energy_range(data, E_min, E_max)
     plot_bands_new(data, fermi_energy, E_min, E_max, kspacing, struct, colormap, kpath, filename)
