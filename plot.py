@@ -123,14 +123,14 @@ def plot_bands_new(data, fermi_energy, E_min, E_max, kspacing = 50, struct = 'fu
     plt.savefig(filename + '_' + kpath + '.pdf', bbox_inches = 'tight')
     #plt.show()
     
-def plot_bandstructure(file_path, fermi_energy, E_min, E_max, kspacing, struct, kpath = 'MGM', filename = 'eucd2as2', colormap = 'viridis'):
+def plot_bandstructure(file_path, fermi_energy, E_min, E_max, kspacing, struct, kpath = 'MGM', filename = 'eucd2as2', colormap = 'viridis', code = 'vasp'):
     fermi_energy = float(fermi_energy) 
     E_min = float(E_min) 
     E_max = float(E_max) 
     kspacing = int(kspacing) 
     data = band_structure_gen(file_path)
     data = remove_bands_energy_range(data, E_min, E_max)
-    plot_bands_new(data, fermi_energy, E_min, E_max, kspacing, struct, colormap, kpath, filename)
+    plot_bands_new(data, fermi_energy, E_min, E_max, kspacing, struct, colormap, kpath, filename, code)
 
 
 
